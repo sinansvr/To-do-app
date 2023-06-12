@@ -12,24 +12,31 @@ items=[];
 
 //Event Listeners
 
+//yeni task ekleme
 addForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     //! yeni item listeye eklendi
     // Creatli fonk. çağrılarak yeni eleman oluşturulması
     const newItem=inputItem.value
-    createLi(newItem);
 
-    //bir diziye aktardık
-    items.push(newItem)
-    console.log(items)
+    if(newItem==""){
+        alert("Lütfen bir görev giriniz!")
+    }else{createLi(newItem);
 
-    //LocalStorage a kaydettik
-    localStorage.setItem("itemsLS",JSON.stringify(items))
-
-    inputItem.value="";// inputu sıfırladık    
+        //bir diziye aktardık
+        items.push(newItem)
+        console.log(items)
+    
+        //LocalStorage a kaydettik
+        localStorage.setItem("itemsLS",JSON.stringify(items))
+    
+        // inputItem.value="";// inputu sıfırladık   
+        addForm.reset(); }
+    
 
 })
 
+//sayfa yüklendiğinde localStorage den verileri güncelleme
 window.addEventListener("load",()=>{
 
     //Localstorage den gelen verilen parse edilmesi ve kontrolü
@@ -42,7 +49,13 @@ window.addEventListener("load",()=>{
     });
 })
 
+//listelenen elemanı silme
+itemList.addEventListener("click",(e)=>{
+    if(e.target.classList.contains("fa-trash-can")){
+        alert("kdnsfs")
+    }
 
+})
 
 //Functions
 
