@@ -41,20 +41,30 @@ window.addEventListener("load",()=>{
 
     //Localstorage den gelen verilen parse edilmesi ve kontrolü
     items= JSON.parse(localStorage.getItem("itemsLS"))||[]
-    console.log(items);
+    // console.log(items);
     //localStorage den gelen verilerin listeye eklenmesi
     items.map(item => {
         createLi(item)
-        console.log(item)
+        // console.log(item)
     });
 })
 
-//listelenen elemanı silme
+//listelenen elemanı ikona tıklayarak silme
 itemList.addEventListener("click",(e)=>{
     if(e.target.classList.contains("fa-trash-can")){
-        alert("kdnsfs")
-    }
+        e.target.closest("li").remove();
 
+        const newItemLS= JSON.parse(localStorage.getItem("itemsLS")) || [];//!localStorageden verileri getir yoksa boş dizi döndür
+        // const text=e.target.closest("li").querySelector("span").textContent;//!kısa yoldan ulaşım
+        const text=e.target.closest("li").firstElementChild.nextElementSibling.textContent;//!tıklanan ikona ait texte ulaştık
+        const index=newItemLS.indexOf(text);
+
+        if(index>-1){
+            newItemLS.splice(index,1);
+        }
+
+        localStorage.setItem("itemsLS",JSON.stringify(newItemLS));
+    }    
 })
 
 //Functions
