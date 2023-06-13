@@ -6,11 +6,17 @@ const addForm = document.querySelector("#add-form")
 
 const itemList=document.querySelector("#item-list")//görev eklenen liste
 
+const deleteAll =document.querySelector("#delete-all")
+
 
 //Variables
 items=[];
 
 //Event Listeners
+
+window.addEventListener("load",()=>{
+    inputItem.focus();
+})
 
 //yeni task ekleme
 addForm.addEventListener("submit",(e)=>{
@@ -75,6 +81,16 @@ itemList.addEventListener("click",(e)=>{
         console.log(e.target.closest("li").classList)
     }
 })
+
+// Bütün görevleri silme
+
+deleteAll.addEventListener("click",()=>{
+    
+    confirm("Bütün görevleri silmek istediğinize emin misiniz?")
+    const newItemLS=[];
+    localStorage.setItem("itemsLS",JSON.stringify(newItemLS))
+    location.reload();//!sayfayı yeniden yükler
+    })
 
 //Functions
 
