@@ -18,7 +18,7 @@ window.addEventListener("load",()=>{
     inputItem.focus();
 })
 
-//yeni task ekleme
+//yeni görev ekleme
 addForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     //! yeni item listeye eklendi
