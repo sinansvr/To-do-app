@@ -67,6 +67,15 @@ itemList.addEventListener("click",(e)=>{
     }    
 })
 
+//Görev tamamlandığında görevin üsütünü çizme
+
+itemList.addEventListener("click",(e)=>{
+    if(e.target.classList.contains("fa-circle-check")){
+        e.target.closest("li").classList.toggle("uzerini-ciz")
+        console.log(e.target.closest("li").classList)
+    }
+})
+
 //Functions
 
 //Listeye eklenemek istenen elemanın oluşturlması ve localStorage kaydedilmesi
