@@ -17,6 +17,11 @@ main{
     background-color: #d0e7ab;
 }
 
+#add-form i:hover{
+    scale: 1.2;
+      
+}
+
 #add-form input{
     background-color: #dde2d3;
 }
@@ -42,7 +47,8 @@ ul li i:hover{
 }
 
 .uzerini-ciz{
-    text-decoration: line-through;
+    text-decoration:line-through;
     background-color: #FFAAA5!important;
    
 }
+
